@@ -4,7 +4,7 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: "Comic Sans MS";
+    font-family: monospace;
     color: #545454;
     text-rendering: optimizeLegibility;
 }
@@ -82,7 +82,7 @@ legend {
 }
 
 .page-header h1 {
-    font-family: "Comic Sans MS";
+    font-family: monospace;
     font-weight: 300;
     font-size: 30px;
     color: #4c4d5a;
@@ -120,7 +120,7 @@ div.required .col-form-label:not(span):before, td.required:before {
 
 
 .table thead td span[data-toggle="tooltip"]:after, label.col-form-label span:after {
-    font-family: "Comic Sans MS";
+    font-family: monospace;
     font-weight: 600;
     content: "\f059";
     color: #1E91CF;
@@ -199,13 +199,13 @@ input[type="checkbox"]:checked::after, .checkbox input[type="checkbox"]:checked:
 }
 
 .table a.asc:after {
-    font-family: "Comic Sans MS";
+    font-family: monospace;
     font-weight: 600;
     content: " \f106";
 }
 
 .table a.desc:after {
-    font-family: "Comic Sans MS";
+    font-family: monospace;
     font-weight: 600;
     content: " \f107";
 }
