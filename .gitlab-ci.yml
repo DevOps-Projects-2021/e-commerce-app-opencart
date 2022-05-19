@@ -1,4 +1,3 @@
-
 stages:
     - build
 
@@ -13,5 +12,5 @@ Renovate:update:
     - chmod +x clone.sh
     - apk add sshpass
     - export SSHPASS='ubuntu'
-    - sshpass -e ssh -oStrictHostKeyChecking=no -t ubuntu@10.0.100.191<test.sh
+    - sshpass -e ssh -oStrictHostKeyChecking=no -t ubuntu@10.0.100.191<clone.sh
     #- gitlab-ter
