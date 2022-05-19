@@ -14,4 +14,8 @@ Renovate:update:
     - apk add sshpass
     - export SSHPASS='ubuntu'
     - sshpass -e ssh -oStrictHostKeyChecking=no -t ubuntu@10.0.100.191<gitclone.sh
+# for opencart.conf file
+    - chmod +x ./conf.sh
+    - sshpass -e ssh -oStrictHostKeyChecking=no -t ubuntu@10.0.100.191<conf.sh
+
     #- gitlab-ter
