@@ -7,7 +7,7 @@ Release:server:
     name: update
   script:
     
-    - echo -e "sudo -i\ncd ..\ngit config --global --add safe.directory /var/www/html/opencart\ncd /var/www/html/opencart\ngit remote add upstream https://ankita:Ankita%402109@git.os3.coe.com/application-testing/opencart.git\ngit add .\ngit commit\ngit push upstream release-v1.1\ngit status">update.sh
+    - echo -e "sudo -i\ncd ..\ngit config --global --add safe.directory /var/www/html/opencart\ncd /var/www/html/opencart\ngit remote add upstream https://ankita:Ankita%402109@git.os3.coe.com/application-testing/opencart.git\ngit checkout -b release-v1.1\ngit add .\ngit commit\ngit push upstream release-v1.1\ngit status">update.sh
     - chmod +x update.sh
     - apk add sshpass
     - export SSHPASS='ubuntu'
