@@ -1,0 +1,1 @@
+echo -e "sudo -i\ncd..\ngit clone https://github.com/opencart/opencart.git\ncd opencart/upload\nmv config-dist.php config.php\ncd admin\nmv config-dist.php config.php\nchown -R www-data:www-data /var/www/html/opencart"
