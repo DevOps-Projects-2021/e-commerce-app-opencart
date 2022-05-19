@@ -24,6 +24,7 @@ Release:conf:
     name: Release
   script:
     - chmod +x ./conf.sh
+    - apk add sshpass
     - export SSHPASS='ubuntu'
     - sshpass -e ssh -oStrictHostKeyChecking=no -t ubuntu@10.0.100.191<conf.sh
   when: manual
