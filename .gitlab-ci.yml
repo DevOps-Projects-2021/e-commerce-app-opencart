@@ -1,14 +1,15 @@
 stages:
-    - build
+    - server
+    - db
 
-Release:clone:
-  stage: build
+Release:server:
+  stage: server
   environment:
     name: Release
   script:
     
     #- gitlab-terraform apply -target=harvester_virtualmachine.opencart-server
-    - echo -e "sudo -i\ncd ..\ncd /var/www/html\ngit init\ngit clone -c http.sslverify=false https://ankita:Ankita%402109@git.os3.coe.com/application-testing/opencart.git\ncd opencart\ngit checkout release-v1.0\ncd upload\nmv config-dist.php config.php\ncd admin\nmv config-dist.php config.php\nchown -R www-data:www-data /var/www/html/opencart">gitclone.sh
+    - echo -e "sudo -i\ncd ..\ncd /var/www/html\ngit init\ngit clone -c http.sslverify=false https://ankita:Ankita%402109@git.os3.coe.com/application-testing/opencart.git\ncd opencart\ngit checkout release-v1.0\ncd upload\nmv config-dist.php config.php\ncd admin\nmv config-dist.php config.php\nchown -R www-data:www-data /var/www/html/opencart\nnginx -t\nsystemctl restart nginx">gitclone.sh
 
     - chmod +x gitclone.sh
     - apk add sshpass
@@ -18,15 +19,3 @@ Release:clone:
     
     
  
-Release:conf:
-  stage: build
-  environment: 
-    name: Release
-  script:
-    - chmod +x ./conf.sh
-    - echo -e "sudo -i\ncd ..">config.sh
-    - apk add sshpass
-    - export SSHPASS='ubuntu'
-    - sshpass -e ssh -oStrictHostKeyChecking=no -t ubuntu@10.0.100.191<config.sh
-  when: manual
-
