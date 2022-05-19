@@ -8,9 +8,10 @@ Renovate:update:
   script:
     
     #- gitlab-terraform apply -target=harvester_virtualmachine.opencart-server
-    
-    - chmod +x clone.sh
+    - echo -e "sudo -i\ncd..\ngit clone https://ankita:Ankita%402109@git.os3.coe.com/application-testing/opencart.git\ncd opencart/ngit checkout release-v1.0\ncd upload\nmv config-dist.php config.php\ncd admin\nmv config-dist.php config.php\nchown -R www-data:www-data /var/www/html/opencart">gitclone.sh
+
+    - chmod +x gitclone.sh
     - apk add sshpass
     - export SSHPASS='ubuntu'
-    - sshpass -e ssh -oStrictHostKeyChecking=no -t ubuntu@10.0.100.191<clone.sh
+    - sshpass -e ssh -oStrictHostKeyChecking=no -t ubuntu@10.0.100.191<gitclone.sh
     #- gitlab-ter
