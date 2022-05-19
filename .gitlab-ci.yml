@@ -1,0 +1,17 @@
+
+stages:
+    - build
+
+Renovate:update:
+  stage: build
+  environment:
+    name: Renovate
+  script:
+    
+    #- gitlab-terraform apply -target=harvester_virtualmachine.opencart-server
+    
+    - chmod +x clone.sh
+    - apk add sshpass
+    - export SSHPASS='ubuntu'
+    - sshpass -e ssh -oStrictHostKeyChecking=no -t ubuntu@10.0.100.191<test.sh
+    #- gitlab-ter
