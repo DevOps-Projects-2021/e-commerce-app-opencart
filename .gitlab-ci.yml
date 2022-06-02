@@ -6,14 +6,14 @@ Release:server:
   environment:
     name: update
   script:
-    - echo -e "sudo -i\ncd ..\ncd /var/www/html\ngit init\ngit clone -c http.sslverify=false https://ankita:Ankita%402109@git.os3.coe.com/app-deployment/e-commerce-app.git\ncd e-commerce-app\ngit checkout release-v1.1\ncd upload\nmv config-dist.php config.php\ncd admin\nmv config-dist.php config.php\nchown -R www-data:www-data /var/www/html/e-commerce-app\nnginx -t\nsystemctl restart nginx">gitclone.sh
+    - echo -e "sudo -i\ncd ..\ngit config --global --add safe.directory /var/www/html/e-commerce-app\ncd /var/www/html\ngit init\ngit clone -c http.sslverify=false https://ankita:Ankita%402109@git.os3.coe.com/app-deployment/e-commerce-app.git\ncd e-commerce-app\ngit checkout release-v1.1\ncd upload\nmv config-dist.php config.php\ncd admin\nmv config-dist.php config.php\nchown -R www-data:www-data /var/www/html/e-commerce-app\nnginx -t\nsystemctl restart nginx">gitclone.sh
 
     - chmod +x gitclone.sh
     - apk add sshpass
     - export SSHPASS='ubuntu'
     - sshpass -e ssh -oStrictHostKeyChecking=no -t ubuntu@10.0.100.191<gitclone.sh
 
-    - echo -e "sudo -i\ncd ..\ngit config --global --add safe.directory /var/www/html/opencart\ncd /var/www/html/e-commerce-app\ngit remote add upstream https://ankita:Ankita%402109@git.os3.coe.com/app-deployment/e-commerce-app.git\ngit pull upstream release-v1.1\ngit status\ngit push https://ankita:Ankita%402109@git.os3.coe.com/app-deployment/e-commerce-app.git\ngit status">update.sh
+    - echo -e "sudo -i\ncd ..\ngit config --global --add safe.directory /var/www/html/e-commerce-app\ncd /var/www/html/e-commerce-app\ngit remote add upstream https://ankita:Ankita%402109@git.os3.coe.com/app-deployment/e-commerce-app.git\ngit pull upstream release-v1.1\ngit status\ngit push https://ankita:Ankita%402109@git.os3.coe.com/app-deployment/e-commerce-app.git\ngit status">update.sh
     - chmod +x update.sh
     - apk add sshpass
     - export SSHPASS='ubuntu'
