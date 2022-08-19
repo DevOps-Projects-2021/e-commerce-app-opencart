@@ -13,8 +13,8 @@ Release:server:
     - chmod +x gitclone.sh
     - apk add sshpass
     - export SSHPASS='ubuntu'
-    - sshpass -e ssh -oStrictHostKeyChecking=no -t ubuntu@10.0.100.191<gitclone.sh
-
+    - sshpass -e ssh -oStrictHostKeyChecking=no -t ubuntu@10.0.100.197<gitclone.sh
+  when: manual
     
     
  
